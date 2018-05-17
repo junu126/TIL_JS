@@ -1,0 +1,193 @@
+.bg{
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#by{
+    position: relative;
+    z-index: 1;
+    top: 58em;
+    font-size: 8pt;
+    opacity: 0.4;
+}
+
+#textbord{
+    position: absolute;
+    z-index: 1;
+    width: 40em;
+    height: 25em;
+    top: 8em;
+    left: 23em;
+    font-family: 'Nanum Square';
+}
+
+#textbord_small{
+    z-index: 2;
+    width : 16em;
+    height: 25em;
+    background-color: rgb(208, 210, 211);
+    border: transparent 0px;
+    border-top-left-radius: 3%;
+    border-bottom-left-radius: 3%;   
+}
+
+#textbord_small_img{
+    background-image: url('./Discord.jpg');
+    width: 6em;
+    height: 6em;
+    padding: 30pt 30pt 35pt 30pt;
+    margin-left: 30pt;
+    position: relative;
+    top: 5em;
+}
+
+#textbord_small_text{
+    background-image: url('./Discord_text.jpg');
+    width: 9em;
+    height: 2em;
+    margin-left: 35pt;
+    position: relative;
+    top: 6em;
+    left: 5pt;
+}
+
+#textbord_small_underbar{
+    width: 27pt;
+    height: 4pt;
+    margin-left: 40pt;
+    position: relative;
+    top: 2em;
+    border-bottom: solid 3pt grey; 
+    opacity: 0.8;
+}
+
+#textbord_big{
+    position: absolute;
+    left: 16em;
+    bottom: 0em;
+    width: 24em;
+    height: 25em;
+    background-color: rgb(39, 38, 49);
+    opacity: 0.9;
+    border: transparent 0px;
+    border-top-right-radius: 3%;
+    border-bottom-right-radius: 3%;
+}
+
+#header{
+    z-index: 3;
+    position: relative;
+    padding: 22px 22px 22px 22px;
+    text-align: center;
+    color: white;
+    font-family: inherit;
+    filter: none;
+    font-size: 15pt ;
+}
+
+#main{
+    margin: 5pt 15pt 0pt 15pt;
+    height: 140pt;
+}
+
+#email{
+    height: 60pt;
+}
+
+#email_text{
+    font-size: 9pt;
+    font-family: 'Nanum Square';
+    margin-bottom: 8pt;
+    color: grey;
+}
+
+#email_ID_s{
+    font-family: 'Nanum Square';
+    font-size: 10pt;
+    padding: 5pt 5pt 5pt 0pt;
+    width: 240pt;
+    background-color: transparent;
+    border-top: gray solid 0pt; 
+    border-bottom: grey solid 1pt;
+    border-left: gray solid 0pt; 
+    border-right: gray solid 0pt; 
+    color: white;
+}
+
+#passward{
+    height: 60pt;  
+}
+
+#passward_text{
+    font-size: 9pt;
+    font-family: 'Nanum Square';
+    margin-bottom: 8pt;
+    color: grey;
+}
+
+#passward_pass_s{
+    font-family: 'Nanum Square';
+    font-size: 10pt;
+    padding: 5pt 5pt 5pt 0pt;
+    width: 240pt;
+    background-color: transparent;
+    border-top: gray solid 0pt; 
+    border-bottom: grey solid 1pt;
+    border-left: gray solid 0pt; 
+    border-right: gray solid 0pt; 
+    color: white;
+}
+
+#forget{
+    font-family: 'Nanum Square';
+    font-size: 9pt;
+    color: grey;
+    border: transparent;
+    background-color: rgb(39, 38, 49);
+}
+
+#login{
+    position: relative;
+}
+
+#login_button{
+    border: 0pt solid white;
+    border-radius: 2pt; 
+    background-color: rgb(114, 137, 218);
+    position: absolute;
+    margin-left: 2em; 
+    width: 246pt;
+    height: 4em;
+    left: 183pt;
+    bottom: 5em;
+    color: white;
+    font-size: 12pt;
+}
+
+#login_button:hover{
+    background-color: rgb(104, 107, 218)
+}
+
+#sign-up{
+      position: relative;
+      left: 210pt;
+      bottom: 4em;
+      font-size: 9pt;
+      color: grey;
+      font-family: 'Nanum Square'
+}
+
+#gone{
+    color: white;
+    background-color: transparent;
+    border: transparent;
+}
+
+#gone:hover{
+
+    border-bottom: solid white 2pt; 
+}
