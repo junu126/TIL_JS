@@ -101,6 +101,40 @@ function aGroupOfGames6() {
 
 aGroupOfGames6();
 
+// 다이아몬드 (7 - 8)
+
+document.write("<br><br><br>");
+
+function aGroupOfGames7() {
+    for(let i = 1 ; i <= 9 ; i= i + 2){
+        for(let j = 9 ; j >= i ; j--){
+            document.write("&nbsp;");
+        }
+        for(j = 1 ; j <= i ; j++){
+            document.write("* ");
+        }
+        document.write("<br>");
+    }
+}
+
+aGroupOfGames7();
+
+function aGroupOfGames8() {
+    for(let i = 9 ; i >= 1 ; i = i - 2){
+        for(let j = 9 ; j >= i ; j--){
+            document.write("&nbsp;");
+        }
+        for(j = 1 ; j <= i ; j++){
+            document.write("* ");
+        }
+        document.write("<br>");
+    }
+}
+
+aGroupOfGames8();
+
+// 
+
 // 러닝 자바스크립트 책으로!
 
 function getGreeting() {
@@ -109,16 +143,17 @@ function getGreeting() {
 
 console.log( getGreeting() ); // getgreeting() = "Hello World!"
 console.log( getGreeting );   // getgreeting = function getGreeting()  [system error.]
-
+/*
 const f = getGreeting;
 f();    //f() = getGreeting = "Hello World!"
 console.log( f( ));
-
+*/
+/*
 const o = {};
 o.f = getGreeting;
 o.f();      // o의 객체 안에 f라는 프로퍼티를 만듬.  ["Hello World!"]
 console.log( o.f() );
-
+*/
 const arr = [1,2,3];
 arr[1] = getGreeting;   //arr[ 0 , getGreeting() , 2] 와 같다.
 arr[1]();   // "Hello World!"
@@ -147,13 +182,15 @@ console.log(`f를 호출한 다음 : x = ${x}`);
 // f 내부 : x = 5           <<= 함수 내부에서 선언한 x와 바깥에 있는 x는 다른 '객체'라고 볼 수 있다.
 // f를 호출한 다음 : x = 3
 
+/*
 function f(o) {
-    o.message = `f 안에서 수정함 ( 이전 값 : '${o.message}'`);
+    o.message = `f 안에서 수정함 ( 이전 값 : '${o.message}')`;
 }
 let o = { message : "초기 값" };
 console.log(`f를 호출하기 전 : o.message = "${o.message}"`);
 f(o);
 console.log(`f를 호출한 다음 : o.message = "${o.message}"`);
+*/
 
 // f를 호출하기 전 : o.message = "초기 값"
 // f를 호출한 다음 : o.message = "f 안에서 수정함 ( 이전 값 : '초기 값')"
@@ -180,3 +217,30 @@ console.log(`f를 호출한 다음 : o.message="${o.message}"`);
 // 함수내부의 매개변수 o와 함수 밖의 매개변수 o는 서로 다르다.
 // f를 호출하면 둘은 같은 객체를 가리키지만 f 내부에서 o에 할당한 객체는 새로운, 전혀 다른 객체이다.
 // 함수 바깥의 o는 여전히 원래 객체를 가르킨다.
+
+function getSentence({ subject, verb, object}) {
+    return console.log(`${subject} ${verb} ${object}`);
+}
+const p = {
+    subject : "I",
+    verb : "love",
+    object : "JavaScript",
+};
+
+getSentence(p);
+
+function getSentence2([ subject, verb, object]) {
+    return console.log(`${subject} ${verb} ${object}`);
+}
+const arr3 = [ "I", "love", "JavaScrip" ];
+getSentence2(arr3);
+
+let arr2 = [1, 2, 3, 4, 5];
+console.log(...arr2);
+    
+function f(x, ...y) {
+    // y 는 배열입니다. y 는 배열입니다.
+    console.log(y[0], y[1]);
+    return (x * y.length);
+  };
+  console.log(f(3, "hello", true)); //결과값은 6
