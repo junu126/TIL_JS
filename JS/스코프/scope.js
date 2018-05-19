@@ -119,6 +119,8 @@ undefinedVar;   // undefindeVar 는 정의되지 않았습니다.
 
 */
 
+
+/*
 x;      // x는 선언되지 않았습니다.
 let x = 3;
 
@@ -127,4 +129,77 @@ let x = 3;
 y;  // undefinde
 var y = 3;
 y;  // 3
+*/
 
+
+/*
+// 원래 코드            // JS가 해석한 코드
+
+if(x !== 3) {           var x;
+    console.log(y);     var y;
+    var y = 5;          if( x !== 3) {
+    if ( y === 5) {         console.log(y);
+        var x = 3;          y = 5;
+    }                       if ( y === 5) {
+    console.log(y);             x = 3;
+}                           }
+if( x === 3) {              console.log(y);
+    console.log(y);     }
+}                       if( x === 3) {   
+                            console.log(y);
+                        }
+
+// 언젠가는 var대신 let을 쓰는 세상이 온다.
+// var는 위의 형태처럼 코드를 복잡하고, 혼잡하게 만들기 때문.
+*/
+
+// 함수 호이스팅
+/*
+f();    // f
+function f() {
+    console.log('f');
+}
+
+f();    // 선언되지 않았따!
+let f = function() {
+    console.log('f');
+}
+*/
+
+//사각지대
+
+/*
+//let으로 변수 선언을 하지 않은 코드 (안전)
+    if(typeof x === "undefinde") {
+        console.log("x doesn't exist or is undefined");
+    } else {
+        // x를 사용해도 안전한 코드
+    }
+
+//let으로 변수 선언을 한 코드 (오류)
+    if(typeof x === "undefinde") {
+        console.log("x doesn't exist or is undefinde");
+    } else {
+        // x를 사용해도 안전한 코드
+    }
+    let x = 5;
+
+*/
+
+//스트릭트 모드 (엄격 모드)
+/*
+    strict모드는 전체 스크립트 또는 각각의 함수에 적용된다.
+    스코프에는 적용되지 않는다.
+    적용방법은 함수를 시작할 때 'use strict'; 또는 "use strict";를 붙인다.
+    EX)
+
+    (function() {
+        'use strict';
+
+        // 코드를 전부 이 안에 작성
+        // 이 코드는 스트릭트 모드로 동작하지만,
+        // 이 코드와 함께 동작하는 다른 스크립트는
+        // 스트릭트 모드에 영향을 받지 않는다.
+    })();
+
+*/
