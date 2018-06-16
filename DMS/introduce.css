@@ -1,0 +1,567 @@
+
+/* Desktops and laptops */
+
+/* a태그 데코레이션 삭제 */
+a { color: white; text-decoration: none;}
+
+/* 바디 전체 */
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'NanumSquareRound',sans-serif;
+    background-color: wheat;
+}
+
+/* 상단의 바 */
+#TopBar {
+    position: relative;
+    padding-top: 5%;
+    width: 100%;
+    background-image: url("https://archive-media-0.nyafuu.org/wsr/image/1498/05/1498052861966.png");
+    height: 25rem;    
+    background-size: 52rem;
+}
+
+/* 상단바 - 이름 */
+#TopBarMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    color: white;
+    margin: 0 1rem 1rem 1rem;
+    position: relative;
+    top: 2rem;
+}
+
+/* 메뉴 - ul */
+#TopBarContents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+/* 메뉴 - a */
+.Contents {
+    width: 11rem;
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 메뉴 - li */
+.Contents li {
+    color: white;
+    width: 11rem;
+    padding: 4px;
+    text-align: center;
+    display: inline-block;
+    font-size: 2rem;
+    opacity: 0.9;
+}
+
+/* 메뉴 - li (hover) */
+.Contents li:hover {
+    animation-duration: 0.5s;
+    animation-name: appear;
+    animation-fill-mode: forwards;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    color: black;
+    border-bottom: solid 2px black;
+}
+
+/* 인적사항 */
+.PersonalInformation{
+    width: 100%;
+    height: 46rem;
+}
+
+/* 얼굴 배경 */
+#BackgroundFace {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    float: left;
+    background-color: white;
+}
+
+/* 얼굴 */
+#face {
+    width: 85%;
+    height: 85%;
+    margin: -42.5% 0 0 -42.5%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+/* 얼굴 + 글 */
+#PImenu {
+    margin-top : 7.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+/* '인적사항' 텍스트 */
+#PersonalInformationText {
+    width: 100%;
+    height: 2em;
+    text-align: center;
+    font-size: 4rem;
+    background-color: #FBFFB9;
+    padding-top: 1em;
+    margin: 0;
+}
+
+/* 특징 및 성격 텍스트 */
+#FeaturesText {
+    width: 100%;
+    height: 2em;
+    text-align: center;
+    font-size: 4rem;
+    background-color: #FBFFB9;
+    padding-top: 1em;
+    margin: 1em 0 0.5em 0;
+}
+/* 특징 및 성격 */
+#Features {
+    width: 100%;
+    height: 40em;
+}
+
+/* 관심분야 텍스트*/
+.InterestsText {
+    width: 100%;
+    height: 2em;
+    text-align: center;
+    font-size: 4rem;
+    background-color: #FBFFB9;
+    padding-top: 1em;
+    margin: 1em 0 1em 0;
+}
+
+/* 분야 종류 구분 */
+.InterestsNum {
+    font-size: 2em;
+    margin: 1em;
+}
+
+/* 각오 */
+.SayText {
+    width: 100%;
+    height: 2em;
+    text-align: center;
+    font-size: 4rem;
+    background-color: #FBFFB9;
+    padding-top: 1em;
+    margin: 1em 0 0 0;
+}
+
+/* animations */
+@keyframes appear {
+    0% {
+        color: rgba(0, 0, 0, 0);
+        background: rgba(255,255,255,0);
+    }
+
+    100% {
+        color: black;
+        background-color: white;
+    }
+}
+
+/* 글 */
+.BodypageText {
+    font-size: 2rem;
+    line-height: 200%;
+    padding: 1em;
+    margin: 0;
+}
+
+/* 위로향하는 화살표 */
+.pgUP {
+    position: fixed;
+    left: 90%;
+    top:85%        
+}
+
+
+/* Smartphones (portrait) */
+
+@media all and (max-width: 320px) {
+    /* 상단의 바 */
+    #TopBar {
+        height: 20rem;    
+        background-size: 40rem;
+    }
+
+    /* 상단바 - 이름 */
+    #TopBarMain {
+        font-size:2em;
+    }
+    
+    /* 메뉴 - ul */
+    #TopBarContents {
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    /* 메뉴 - a */
+    .Contents {
+        width: 11rem;
+        margin: 0.5rem;
+    }
+
+    /* 메뉴 - li */
+    .Contents li {
+        margin: 1em;
+        width: 1rem;
+        font-size: 1.1rem;
+    }
+
+    /* 메뉴 - li (hover) */
+    .Contents li:hover {
+        border-top-right-radius: 0%;
+        border-bottom-left-radius: 0.5em;
+        color: black;
+        border-right: solid 2px black;
+    }
+
+    /* 얼굴 뒤에 배경 */
+    #BackgroundFace {
+        width: 260px;
+        height: 200px;
+        margin: 0 1.5em 0 0.5em;
+    }
+
+    /* 얼굴 사진 */
+    #face {
+        top: 42%;
+    }
+
+    /* 인적사항 - 글 */
+    .PersonalInformation #PImenu .BodypageText {
+        font-size: 0.8rem;
+        line-height: 200%;
+    }
+
+    /* 글 */
+    .BodypageText {
+        font-size: 1.3rem;
+        line-height: 150%;
+        margin: 0 0 0 1px;
+    }
+
+    /* 인적사항 - div값*/
+    .PersonalInformation{
+        height: 34.5rem;
+    }
+
+    /* 인적사항 - h2 */
+    #PersonalInformationText {
+        width: 100%;
+        height: 2em;
+        text-align: center;
+        font-size: 4rem;
+        background-color: #FBFFB9;
+        padding-top: 1em;
+        margin: 1em 0 1em 0;
+    }
+
+    /*특징 및 성격 - div값*/
+    .Features {
+        height: 37rem;
+    }
+
+    /* 특징 및 성격 - h3 */
+    #FeaturesText {
+        font-size: 3rem;
+    }
+
+    /* 관심분야 - h2 */
+    .InterestsText {
+        margin: 0;
+    }
+
+    .pgUP {
+        left: 78%;
+        top: 88%;
+    }
+} 
+/* Smartphones (landscape) */
+
+@media only screen and (min-width : 321px) and (max-width: 520px) {
+   /* 상단의 바 */
+   #TopBar {
+    height: 20rem;    
+    background-size: 40rem;
+    }
+
+    /* 상단바 - 이름 */
+    #TopBarMain {
+        font-size:2em;
+    }
+
+    /* 메뉴 - ul */
+    #TopBarContents {
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    /* 메뉴 - a */
+    .Contents {
+        width: 11rem;
+        margin: 0.5rem;
+    }
+
+     /* 메뉴 - li */
+     .Contents li {
+        margin: 7%;
+        width: 80%;
+    }
+
+    /* 메뉴 - li (hover) */
+    .Contents li:hover {
+        border-top-right-radius: 0%;
+        border-bottom-left-radius: 0.5em;
+        color: black;
+        border-right: solid 2px black;
+    }
+
+    /* 얼굴 뒤에 배경 */
+    #BackgroundFace {
+        width: 200px;
+        height: 200px;
+        margin: 0 1.5em 0 0.5em;
+    }
+
+    /* 얼굴 사진 */
+    #face {
+        top: 50%;
+    }
+
+    /* 인적사항 - 글 */
+    .PersonalInformation #PImenu .BodypageText {
+        font-size: 0.8rem;
+        line-height: 200%;
+    }
+
+    /* 글 */
+    .BodypageText {
+        font-size: 1.3rem;
+        line-height: 150%;
+        margin: 0 0 0 1px;
+    }
+
+    /* 인적사항 - div값*/
+    .PersonalInformation{
+        height: 34.5rem;
+    }
+
+    /* 인적사항 - h2 */
+    #PersonalInformationText {
+        width: 100%;
+        height: 2em;
+        text-align: center;
+        font-size: 4rem;
+        background-color: #FBFFB9;
+        padding-top: 1em;
+        margin: 1em 0 1em 0;
+    }
+
+    /*특징 및 성격 - div값*/
+    .Features {
+        height: 37rem;
+    }
+
+    /* 특징 및 성격 - h3 */
+    #FeaturesText {
+        font-size: 3rem;
+    }
+
+    /* 관심분야 - h2 */
+    .InterestsText {
+        margin: 0;
+    }
+
+    .pgUP {
+        left: 78%;
+        top: 88%;
+    }
+} 
+
+/* Smartphones (landscape) */
+
+@media only screen and (min-width : 521px) and (max-width: 940px) {
+    /* 상단의 바 */
+    #TopBar {
+     height: 20rem;    
+     background-size: 40rem;
+     }
+ 
+     /* 상단바 - 이름 */
+     #TopBarMain {
+         font-size:2em;
+     }
+ 
+     /* 메뉴 - ul */
+     #TopBarContents {
+         margin-top: 10%;
+         padding: 0;
+     }
+ 
+     /* 메뉴 - a */
+     .Contents {
+         width: 11rem;
+         margin: 0.5rem;
+     }
+ 
+     /* 메뉴 - li */
+     .Contents li {
+         margin: 7%;
+         width: 100%;
+         font-size: 1.1rem;
+     }
+ 
+     /* 메뉴 - li (hover) */
+     .Contents li:hover {
+         border-top-right-radius: 0%;
+         border-bottom-left-radius: 0.5em;
+         color: black;
+         border-right: solid 2px black;
+     }
+ 
+     /* 얼굴 뒤에 배경 */
+     #BackgroundFace {
+         width: 200px;
+         height: 200px;
+         margin: 0 1.5em 0 0.5em;
+     }
+ 
+     /* 얼굴 사진 */
+     #face {
+         top: 50%;
+     }
+ 
+     /* 인적사항 - 글 */
+     .PersonalInformation #PImenu .BodypageText {
+         font-size: 1.2rem;
+         line-height: 200%;
+     }
+ 
+     /* 글 */
+     .BodypageText {
+         font-size: 1.3rem;
+         line-height: 150%;
+         margin: 0 0 0 1px;
+     }
+ 
+     /* 인적사항 - div값*/
+     .PersonalInformation{
+         height: 34.5rem;
+     }
+ 
+     /* 인적사항 - h2 */
+     #PersonalInformationText {
+         width: 100%;
+         height: 2em;
+         text-align: center;
+         font-size: 4rem;
+         background-color: #FBFFB9;
+         padding-top: 1em;
+         margin: 1em 0 1em 0;
+     }
+ 
+     /*특징 및 성격 - div값*/
+     .Features {
+         height: 37rem;
+     }
+ 
+     /* 특징 및 성격 - h3 */
+     #FeaturesText {
+         font-size: 3rem;
+     }
+ 
+     /* 관심분야 - h2 */
+     .InterestsText {
+         margin: 0;
+     }
+ 
+     .pgUP {
+         left: 78%;
+         top: 88%;
+     }
+ } 
+
+/* Smartphones (landscape) */
+@media only screen and (min-width : 1350px) and (max-width: 1823px) {
+    #TopBar {
+        background-size: 60rem;
+    }
+}
+/* Large screens */
+@media only screen and (min-width : 1824px) {
+    /* 상단의 바 */
+    #TopBar {  
+        background-size: 62rem;
+    }
+
+    /* 얼굴 + 글 */
+    #PImenu {
+        margin-top : 6%;
+    }
+
+    /* 상단바 - 이름 */
+    #TopBarMain {
+        font-size:7em;
+        top: 1rem;
+    }
+
+    /* 메뉴 - li */
+    .Contents li {
+        display: block;
+        font-size: 3.4rem;
+        width: 18rem;
+    }
+
+    /* 메뉴 - a */
+    .Contents {
+        width: 70%;
+        margin: 0;
+    }
+
+    /* 인적사항 - div값*/
+    .PersonalInformation{
+        height: 67rem;
+    }
+    
+    /* 얼굴 배경 */
+    #BackgroundFace {
+        width: 700px;
+        height: 700px;
+    }
+    
+    /* 얼굴 + 글 */
+    #PImenu {
+        margin: 0%;
+    }
+
+    /* 인적사항 - 글 */
+    .PersonalInformation #PImenu .BodypageText {
+        font-size: 3.1rem;
+        line-height: 250%;
+        padding: 1em;
+        margin: 6%;
+        width: 34%;
+    }
+
+    /* 글 */
+    .BodypageText {
+        font-size: 3rem;
+    }
+}
