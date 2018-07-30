@@ -449,3 +449,80 @@ not 키워드를 사용하여 명시된 JSON 스키마를 만족하지 않는 �
 위의 예제는 해당 데이터가 문자열이 아닌 데이터만이 검증을 통과합니다.
 
 즉, 모든 문자열은 검증을 통과하지 못합니다.
+
+# 자바스크립트와 JSON
+JSON은 자바스크립트를 기반으로 한 텍스트 기반의 데이터 교환 표쥰 입니다. 따라서 Javascript를 사용하는 웹 환경에서 사용하는 것이 유리합니다.
+
+자바스크립트에서 JSON을 사용하는 방법은 간단합니다. Javascript에서는 JSON 데이터 처리를 위한 메소드를 지원합니다.
+
+1. JSON.stringify()
+2. JSON.parse()
+3. JSON.toJSON()
+
+## JSON.stringify() 메소드
+인수로 전달받은 자바스크립트 객체를 문자열로 전환해서 반환 합니다.
+
+> 문법 `JSON.stringify(value)`  
+
+value에는 변환할 자바스크립트 객체를 전달합니다.
+
+이 메소드는 UTF-16으로 인코딩된 JSON 형식의 문자열을 반환합니다.
+
+예제
+```js
+var dog = {name: "식빵", family: "웰시코기", age: 1, weight: 2.14}; // 자바스크립트 객체
+
+var data = JSON.stringify(dog); // 자바스크립트 객체를 문자열로 변환함.
+
+document.getElementById("json").innerHTML = data;
+```
+
+## JSON.parse() 메소드
+stringify메소드와는 반대로 문자열을 객체로 반환한다.
+
+> 문법 `JSON.parse(text)`
+
+text에는 변환할 문자열을 전달합니다.
+
+이때 해당 문자열은 반드시 유효한 JSON 형식의 문자열이어야 합니다.
+
+만약 JSON 형식에 맞지 않는 문자열을 전달하면, 자바스크립트는 오류를 발생시킬 것입니다.
+
+예제
+```js
+var data = '{"name": "식빵", "family": "웰시코기", "age": 1, "weight": 2.14}'; // JSON 형식의 문자열
+
+var dog = JSON.parse(data); // JSON 형식의 문자열을 자바스크립트 객체로 변환함.
+
+document.getElementById("json").innerHTML = dog + "<br>";
+
+document.getElementById("json").innerHTML += dog.name + ", " + dog.family;
+```
+
+## JOSN.toJSON()메소드
+자바스크립트 Data 객체의 **데이터**를 JSON형식의 문자열로 반환.
+
+따라서 이 메소드는 Date.prototype 객체에서만 사용할 수 있습니다.
+
+toJSON() 메소드는 접미사 Z로 식별되는 UTC 표준 시간대의 날짜를 ISO 8601 형식의 문자열로 반환합니다.
+
+따라서 이 문자열은 언제나 24개나 27개의 문자로 이루어지며, 다음과 같은 형식을 따릅니다.
+
+> 문법  
+    >>`YYYY-MM-DDTHH:mm:ss.sssZ`  
+    또는  
+    `±YYYYYY-MM-DDTHH:mm:ss.sssZ`
+
+예제
+```js
+var date = new Date();   // 자바스크립트 Date 객체
+
+var str = date.toJSON(); // Date 객체를 JSON 형식의 문자열로 변환함.
+
+document.getElementById("json").innerHTML = date + "<br>";
+
+document.getElementById("json").innerHTML += str;
+```
+
+# +PHP
+php... 싫어요 ㅜㅜㅜㅜ
