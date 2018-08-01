@@ -4,6 +4,8 @@
 
 자바스크립트에서, 정규표현식 또한 하나의 객체입니다. 이 패턴들은 RegExp의 Exec 메소드와 test 메소드, 그리고 String의 match메서드,   replace메소드, serch메서드, split 메소드와 함께 사용됩니다.
 
+정규표현식이 조금 복잡하고 혼잡하다보니까 정규표현식을 알려주는 사이트가 등장했습니다.
+[정규표현식](https://regexr.com/)을 간단히 사용할 수 있답니다 ㅎㅎ
 # 사용 이유
 프로그램 이란 자체도 일일이 손으로 계산하고 처리하던 것을 생산성 과 효율성을 위해 만들어진 것처럼
 프로그램 내에서도 생산성과 효율성은 배제 할수 없는 부분 이라는 것입니다.
@@ -93,3 +95,202 @@ function escapeRegExp(string) {
 이 패턴은 "Open Chapter 4.3, paragraph 6"라는 문자열에서 나타날 수 있으며, '4'가 기억됩니다. 이 패턴은 "Chapter 3 and 4"에는 나타나지 않습니다. 왜냐하면 문자열이 '3' 이후에 마침표를 가지고 있지 않기 때문입니다.
 
 부분 문자열을 대응시키면서도 해당 부분을 기억하지 않으려면, 괄호의 첫머리에 `?:` 패턴을 사용하세요. 예를 들어, `(?:\d+)`는 1개 이상의 숫자에 대응되지만 해당 문자들을 기억하지 않습니다.
+
+# 정규식 사용하기
+정규식은 `RegExp`,`test`,`exec`,`String`,`match`,`replace`,`search`,`split` 메소드와 함께 쓰입니다. 이 메소드는 [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)에서 잘 설명되어 있습니다.
+
+**정규식에서 쓰이는 메소드**
+|<center>Method</center>|<center>Description</center>|
+|:--------:|:--------:|
+|**`exec`** | <center>대응되는 문자열을 찾는 `RegExp`메소드입니다. 정보를 가지고 있는 배열을 반환합니다. 대응되는 문자열을 찾지 못했다면 null을 반환합니다.</center> |
+|**`test`** | <center>대응되는 문자열이 있는지 검사하는 `RegExp` 메소드 입니다. true나 false를 반환합니다.</center> |
+|**`match`** | <center>대응되는 문자열을 찾는 `RegExp`메소드입니다. 정보를 가지고 있는 배열을 반환합니다. 대응되는 문자열을 찾지 못했다면 null을 반환합니다.</center> |
+|**`search`** | <center>대응되는 문자열이 있는지 검사하는 `String` 메소드 입니다. 대응된 부분의 인덱스를 반환합니다. 대응되는 문자열을 찾지 못했다면 -1을 반환합니다.</center> |
+|**`replace`** | <center>대응되는 문자열을 찾아 다른 문자열로 치환하는 `String`메소드 입니다.</center> |
+|**`split`** | <center>정규식 혹은 문자열로 대상 문자열을 나누어 배열로 반환하는 `String`메소드 입니다.</center> |
+|  
+문자열 내부에 패턴과 대응되는 부분이 있는지 알고 싶다면, `test`나 `search` 메소드를 사용하세요, 좀 더 많은 정보를 원하면 `exec`나 `match`메소드를 사용하세요. 하지만 exec나, match는 속도가 느립니다. 만약 `exec`나 `match`메소드를 사용했는데 대응되는 부분이 있다면, 이 메소드는 배열을 반환하고 정규식 객체의 속성을 업데이트 합니다. 만약 대응되는 부분이 없다면, `exec`메소드는 `null`을 반환합니다. 즉 false과 같은 의미입니다.
+
+아래의 예에서는, 문자열 내부에서 대응되는 부분을 찾기 위해 `exec`메소드를 사용했습니다.
+```js
+var myRe = /d(b+)d/g;
+var myArray = myRe.exec("cdbbdbsbz");
+```
+만약 정규식 속성에 접근할 필요가 없다면, 아래와 같이 `myArray`를 만드는 방법도 있습니다.
+
+```js
+var myArray = /d(b+)d/g.exec("cdbbdbsbz");
+```
+문자열로 정규식을 만들고 싶다면, 이런 방법도 있습니다
+```js
+var myRe = new RegExp("d(b+)d", "g");
+var myArray = myRe.exec("cdbbdbsbz");
+```
+위 예제에서의 두 번째 형태처럼, 정규식 객체를 변수에 대입하지 않고도 사용할 수 있습니다. 하지만, 이렇게 하면 정규식 객체가 매번 새로 생성됩니다. 이러한 이유로, 만약 변수에 대입하지 않는 형태를 사용하는 경우 나중에 그 정규식의 속성에 접근할 수 없게 됩니다. 예를 들어, 이러한 스크립트가 있을 수 있습니다.
+
+## Property or index - 메소드
+- index : 입력된 문자열에서 대응된 부분에 해당하는 인덱스(0부터 시작)
+- input : 입력된 원본 문자열
+- lastIndex : 다음 검색 시 검색을 시작할 인덱스
+- source : 패턴 문자열. 정규식이 생성될 때 갱신됩니다. 실행 시점에는 갱신되지 않습니다.
+
+```js
+var myRe = /d(b+)d/g;
+var myArray = myRe.exec("cdbbdbsbz");
+console.log("The value of lastIndex is" + myRe.lastIndex);
+
+// The value of lastIndex is 5
+```
+그러나, 만약 이러한 스크립트가 있으면
+```js
+var myArray = /d(b+)d/g.exec("cdbbdbsbz");
+console.log("The value of lastIndex is " + )
+
+// THe value of lastIndex is 0
+```
+# 괄호로 둘러싼 패턴 사용하기
+정규식 패턴에 괄호를 사용하면, 그 부분을 별도로 대응시키면서 대응된 부분을 기억합니다. 예를 들면, `/a(b)c/`는 'abc'와 대응되면서 'b'를 기억합니다. 괄호로 감싸진 문자열을 불러오려면, 배열요소 `[1]`,...,`[n]`를 사용하세요.
+
+괄호로 감쌀 수 있는 문자열의 길이는 제한이 없습니다. 반환된 배열은 찾아낸 모든 것들을 갖고 있습니다. 다음의 예는 괄호로 둘러싸진 부분이 어떻게 대응되는지 보여줍니다.
+
+문자열 내부의 단어를 바꾸기 위해 `replace()`메소드를 이용하고 있습니다. 치환 문자열로는 `$1`과 `$2`를 사용하고 있는데, 이는 각각 첫 번째와 두 번째 괄호가 쳐진 부분에 대응된 문자열을 가리킵니다.
+
+```js
+var re = /(\w+)\s(\w+)/;
+// (\w+) = 단어문자가 한개이상(알파벳이나,숫자가 여러개)
+// \s = 공백문자
+var str = "John Smith";
+var newstr = str.replace(re, "$2, $1");
+console.log(newstr);
+// Smith, John
+```
+# 플래그를 사용한 고급검색
+정규식은 다섯 개의 플래그를 설정해줄 수 있으며, 이를 통해 전역 검색 또는 대소문자 구분 없는 검색을 수행할 수 있습니다. 이 플래그들은 각기 사용될 수도 있고 함께 사용될 수도 있고 순서에 구분이 없습니다.
+
+- `g` : 전역 검색
+- `i` : 대소문자 구분 없는 검색
+- `m` : 다중행 검색
+- `u` : 유니코드; 패턴을 유니코드 코드 포인트의 나열로 취급합니다.
+- `y` : "sticky" 검색을 수행. 문자열의 현재 위치부터 검색을 수행합니다.
+
+정규식을 플래그에 포함시키기 위해서는 특별한 문법이 필요합니다.
+```js
+var re = /pattern/flags;
+// 또는
+var re = new RegExp("pattern", "flags");
+```
+이 플래그는 정규식에 합쳐지는 정보임을 기억하는게 좋습니다. 이것들은 나중에 추가되거나 제거될 수 없습니다.
+
+예를 들어 `re = /\w+\s/g`는 한 개 이상의 문자열 뒤에 공백이 하나 있는 패턴을 찾는 정규식을 생성합니다. 그리고 문자열 전체에 걸쳐 이 조합을 검색합니다.
+
+```js
+var re = /\w+\s/g;
+// \w+\s = 문자열뒤에 공백이 있는 경우
+var str = "fee fi fo fum";
+var myArray = str.match(re);
+// match = 대응되는 문자열을 배열로 반환
+console.log(myArray);
+// ["fee", "fi", "fo"]
+```
+`var re = /\w+\s/g`를 다르게 쓰면
+```js
+var re = new RegExp("\\w+\\s", "g");
+```
+그리고 같은 결과를 얻습니다.
+
+`.exec()`메소드를 사용할 때에는 `g` 플래그에 대한 동작이 다릅니다. ("클래스"와 "인수"의 역할이 뒤바뀝니다: `.match()`를 사용할 때는, string클래스가 메소드를 갖고 정규식은 인수였던 것에 반해, `.exec()`를 사용할 때는 정규식이 메소드를 갖고 문자열이 인수가 됩니다. `str.match(re)`과 `re.exec(str)`를 비교해보세요.) `g`플래그와 `.exec()`메소드가 함께 사용되면 진행상황에 대한 정보가 반영됩니다.
+
+```js
+var re = /\w+\s/g;
+var str = "fee fi fo fum";
+var xArray;
+while(xArray = re.exec(str)) {
+    console.log(xArray);
+}
+// 출력 결과
+// exec는 문자열을 배열로 나타낸다.
+
+// ["fee ", index: 0, input: "fee fi fo fum"]
+// ["fi ", index: 4, input: "fee fi fo fum"]
+// ["fo ", index: 7, input: "fee fi fo fum"]
+```
+
+`m`플래그는 여러 줄의 입력 문자열이 실제로 여러 줄로서 다뤄져야 하는 경우에 쓰입니다. 만약 `m`플래그가 사용되면, `^`와 `$`문자는 전체 문자열의 시작과 끝에 대응되는 것이 아니라 각 라인의 시작과 끝에 대응됩니다.
+
+# 예제
+다음의 예는 정규 표현식의 몇 가지 사용법을 보여줍니다.
+
+## 입력 문자열에서 순서를 변경하기
+---
+다음 예는 정규식의, `string.split()`과 `string.replace()`의 사용을 설명합니다. 그 것은 공백, 탭과 정확히 하나의 세미콜론의 구분으로 이름(이름을 먼저)이 포함된 대략 형식의 입력 문자열을 정리합니다. 마지막으로, 순서를 뒤 바꾸고 목록을 정렬합니다.
+
+```js
+var names = "Harry Trump ;Fred Barnry ;Helen Rigby ; Bill Abel ; Chris Hand";
+var output = ["---------- Original String\n", names + "\n"];
+
+var pattern = /\s*;\s*/;
+// 해석하면
+// 공백문자가 0개이거나 그 이상 이고 그 다음 세미콜론(;)이 나온 후 한번더 공백문자가 0개거나 있는 경우.
+
+var nameList = names.split(pattern);
+
+pattern = /(\w+)\s+(\w+)/;
+// 해석하면
+// 단어문자가 1개 이상이고 공백이 한개 이상있고, 단어문자가 한개 이상인 경우.
+// ex) abcd abcd === true
+
+var bySurnameList = [];
+
+output.push("---------- After Split by Regular Expression");
+
+var i, len;
+for (i = 0, len = nameList.length; i < len; i++) {  // 0 < 5
+    output.push(nameList[i]);   // output의 배열에 output[3]부터 nameList[i]번지 값을 push해줌
+    bySurnameList[i] = nameList[i].replace (pattern, "$2, $1"); // bySurnameList에는 nameList[i] 번지에 있는 값을 $2 $1로 넣어줌.
+}
+
+// Display the new array.
+output.push("---------- Sorted");
+for (i = 0, len = bySurnameList.length; i < len; i++) {
+    output.push(bySurnameList[i]);
+}
+
+output.push("---------- End");
+
+console.log(output.push("\n"));
+
+for(i = 0; i < output.length; i++)
+    console.log(output[i]);
+```
+
+## 입력을 확인하기 위해 특수 문자를 사용하기
+다음 예에서, 사용자는 전화번호를 입력 할 것으로 예상됩니다. 사용자가 "Check"버튼을 누를때, 스크립트는 번호의 유효성을 검사합니다. 번호가 유추한 경우, 스크립트는 사용자에게 감사하는 메시지와 번호를 확인하는 메시지를 나타냅니다. 번호가 유효하지 않은 경우, 스크립트는 전화번호가 유효하지 않다는 것을 사용자에게 알립니다.
+
+사용자가 <Enter>키를 누를 때 활성화 변경 이벤트는 RegExp.input의 값을 설정합니다.
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
+        <meta http-equiv="Content-Script-Type" content="text/javascript">  
+        <script type="text/javascript">
+             var re = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+            // 
+             function testInfo(phoneInput) {
+                 var OK = re.exec(phoneInput.value);
+                 if (!OK)
+                    window.alert(OK.input + "isn't a phone number with area code!");
+                else
+                    window.aleat("Thanks, your phone number is " + OK[0]);
+             }
+        </script>
+    </head>
+    <body>
+        <p>Enter your phone number (wite area code) and then click "Check".
+        <br>The expected format is like ###-###-####. </p>
+        <form action="#">
+            <input id = "phone"><button onClick="testInfo(document.getElementById('phone'));">Check</button>
+        </form>
+    </body>
+</html>
+```
