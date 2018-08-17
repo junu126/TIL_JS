@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>★random DICE★</title>
+    <style>
+        * { padding: 0px; margin: 0px; size: 20pt; box-sizing: 0px; }
+        body {
+            background-color : black;
+        }
+        #button {
+            font-size: 55pt;
+            width: 100%;
+            background-color : #FFBC42;
+            color: white;
+            border-color: transparent;
+            bottom: 0%;
+            position: absolute;
+        }
+        #button:active {
+            background-color : #EFDC05;
+            bottom: 0%;
+
+        }
+        #main {
+            width: 20em;
+            height: 30em;
+            border: solid gray 3pt;
+            position:absolute;
+            top:20%;
+            left:40%;
+            margin:-50px 0 0 -50px;            
+        }
+        #output {
+            font-size: 120pt;
+            color : white;
+            margin-left: 9pt;
+            margin-right : 9pt;
+            position: absolute;
+            top: 20%;
+            z-index: 1;
+        }
+        button:focus {
+        outline: none;
+        }
+        text:focus {
+        outline: none;
+        }
+        ::selection {
+        background: none;
+        color: white;
+        }
+        #left_big {
+            border: solid gray 3pt;
+            width: 50%;
+            height: 80%;
+            position: absolute;
+        }
+        #left {
+            border: solid gray 3pt;
+            width: 90%;
+            color: white;
+            size: 40pt;
+            text-align: center;            
+        }
+        #right {
+            border: solid gray 3pt;
+            width: 90%;
+            margin: 0 0 0 5%;
+            color: white;
+            size: 40pt;
+            text-align: center;
+        }
+        #right_big {
+            border: solid gray 3pt;
+            width: 50%;
+            height: 80%;
+            position: relative;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>        
+
+    <script>
+        $( () => {
+            var socket = io();
+            $('form').submit( () => {
+                socket.emit('button submit', $('#button').val());
+                $('#button').val('');
+                return false;
+            });
+            socket.on('random dice', (a,b) => {
+                $('#output').text('');
+                $('#output').append($(`<span>${a}&nbsp&nbsp</span>`));
+                $('#output').append($(`<span>${b}<br/></span>`)); 
+                                 
+            });
+        });
+    </script>
+
+    <div id = "main">
+        <div id = 'left_big'>
+            <div id = 'left'>1번주사위</div>
+        </div>
+        <div id = 'right_big'>
+            <div id = 'right'>2번주사위</div>
+        </div>
+        <p id="output"></p>
+        <form action="">
+            <button id="button">Random</button>
+        </form>
+    </div>
+</body>
+</html>
