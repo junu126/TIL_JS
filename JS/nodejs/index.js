@@ -1,4 +1,4 @@
-var express = require('express');
+vb-bvar express = require('express');
 var app = express();
 var router = require('./router/main')(app);
 
