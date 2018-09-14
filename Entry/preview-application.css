@@ -1,0 +1,109 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+td {
+  height: 20px;
+  padding: 0;
+  border: 1px solid #000;
+  border-bottom: 0;
+  text-align: center;
+}
+
+input[type="checkbox"] {
+  margin: 0 18px 0 10px;
+}
+
+/* All preview document(pdf) use this container. */
+#preview-container {
+  width: 595px;
+  height: 842px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 30px;
+  border: 1px solid #000;
+}
+
+/* preview -> application(입학원서) */
+#application-header {
+  font-size: 21px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* table container */
+#application-info-tables {
+  margin-top: 10px;
+  border-bottom: 1px solid #000;
+  font-size: 10px;
+}
+
+/* checkbox textalign */
+.application-info-textalign-left {
+  text-align: left;
+}
+
+/* The total value of the row percentage should be 99%, beacuse 100% has some issue. */
+/* row_1, 접수번호~ */
+#application-info-tables table:nth-child(1) td:nth-child(1) { width: 10%; }
+#application-info-tables table:nth-child(1) td:nth-child(2) { width: 20%; }
+#application-info-tables table:nth-child(1) td:nth-child(3) { width: 14%; }
+#application-info-tables table:nth-child(1) td:nth-child(4) { width: 14%; }
+#application-info-tables table:nth-child(1) td:nth-child(5) { width: 5%; }
+#application-info-tables table:nth-child(1) td:nth-child(6) { width: 6%; }
+#application-info-tables table:nth-child(1) td:nth-child(7) { width: 12%; }
+#application-info-tables table:nth-child(1) td:nth-child(8) { width: 18%; }
+
+/* row_2, 지원자 인적사항~ */
+#application-info-tables table:nth-child(2) tr:nth-child(1) td:nth-child(1) { width: 10%; }
+#application-info-tables table:nth-child(2) tr:nth-child(1) td:nth-child(2) { width: 7%; }
+#application-info-tables table:nth-child(2) tr:nth-child(1) td:nth-child(3) { width: 13%; }
+#application-info-tables table:nth-child(2) tr:nth-child(1) td:nth-child(4) { width: 14%; }
+#application-info-tables table:nth-child(2) tr:nth-child(1) td:nth-child(5) { width: 25%; }
+#application-info-tables table:nth-child(2) tr:nth-child(1) td:nth-child(6) { width: 8%; }
+#application-info-tables table:nth-child(2) tr:nth-child(1) td:nth-child(7) { width: 11%; }
+#application-info-tables table:nth-child(2) tr:nth-child(1) td:nth-child(8) { width: 11%; }
+
+/* row_4, 전화 연락처~ */
+#application-info-tables table:nth-child(3) tr:nth-child(1) td:nth-child(1) { width: 10%; }
+#application-info-tables table:nth-child(3) tr:nth-child(1) td:nth-child(2) { width: 7%; }
+#application-info-tables table:nth-child(3) tr:nth-child(1) td:nth-child(3) { width: 31%; }
+#application-info-tables table:nth-child(3) tr:nth-child(1) td:nth-child(4) { width: 10%; }
+#application-info-tables table:nth-child(3) tr:nth-child(1) td:nth-child(5) { width: 41%; }
+
+/* row_5, 전형유형~ */
+#application-info-tables table:nth-child(4) {table-layout: inherit;}
+
+#application-info-tables table:nth-child(4) tr:nth-child(1) td:nth-child(1) { width: 10%; }
+#application-info-tables table:nth-child(4) tr:nth-child(1) td:nth-child(2) { width: 10%; }
+#application-info-tables table:nth-child(4) tr:nth-child(1) td:nth-child(3) { width: 8.1%; }
+#application-info-tables table:nth-child(4) tr:nth-child(1) td:nth-child(4) { width: 24.9%; }
+#application-info-tables table:nth-child(4) tr:nth-child(1) td:nth-child(5) { width: 8.1%; }
+#application-info-tables table:nth-child(4) tr:nth-child(1) td:nth-child(6) { width: 17%; }
+#application-info-tables table:nth-child(4) tr:nth-child(3) td:nth-child(1) { width: 24%; }
+#application-info-tables table:nth-child(4) tr:nth-child(3) td:nth-child(2) { width: 6%; }
+
+/* row_6, 내신성적 */
+#application-info-tables table:nth-child(5) tr:nth-child(1) td:nth-child(1) { width: 10%; }
+#application-info-tables table:nth-child(5) tr:nth-child(1) td:nth-child(2) { width: 50%; }
+#application-info-tables table:nth-child(5) tr:nth-child(1) td:nth-child(3) { width: 13%; }
+#application-info-tables table:nth-child(5) tr:nth-child(1) td:nth-child(4) { width: 13%; }
+#application-info-tables table:nth-child(5) tr:nth-child(1) td:nth-child(5) { width: 13%; }
+
+/* row_7, 사진 */
+#application-info-tables table:nth-child(6) tr:nth-child(1) td:nth-child(1) { width: 3cm; height: 4cm; }
+#application-info-tables table:nth-child(6) tr:nth-child(1) td:nth-child(2) { width: 58%; }
+#application-info-tables table:nth-child(6) tr:nth-child(1) td:nth-child(3) { width: 21%; }
