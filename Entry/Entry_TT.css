@@ -1,0 +1,257 @@
+.TableSizeA4 {
+    position: absolute;
+    left: 50%;
+    margin: 0 0 0 -297.5px;
+    padding: 30px;
+    text-align: center;
+    height:842px;
+    width:595px;
+    border: 1px solid black;
+}
+
+.TableContainer {
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.MiddleTableContainer {
+    font-size: 13px;
+    position: relative;
+    left: 50%;
+    margin: 0 0 0 -410px;
+    padding: 0;
+    width: 820px;
+    text-align: center;
+    border: #2f2f2f solid 1px;
+}
+
+.TableContainer table {
+    padding: 0;
+    width: 595px;
+    text-align: center;
+    font-size: 11px;
+    border-collapse: collapse;
+}
+
+.TableContainer table tbody {
+    margin: 0;
+    padding: 0;
+}
+
+.TableContainer table tbody tr td {
+    padding: 2px;
+    margin: 0;
+    border: solid 1px black;
+}
+
+.TableContainer table tbody tr .GPA {
+    font-size: 8px;
+}
+
+.TableContainer table tbody tr td .GraduationDate {
+    width: 6px;
+    display: inline-block;
+}
+
+.TableContainer table tbody tr td .SupportDate {
+    display: inline-block;
+    width: 6px;
+}
+
+div table tbody tr td input {
+    width: 100%;
+    border: transparent;
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 0.4px solid #2f2f2f
+}
+
+div table tbody tr td .PhoneInput {
+    width: 15%;
+}
+
+div table tbody tr td .NumberInput {
+    width: 3%;
+}
+div table tbody tr td p,pre {
+    margin: 0;
+    font-family: initial;
+}
+
+div table tbody tr .TableTextAlign {
+    text-align:left;
+    line-height: 0px;
+    vertical-align: middle;
+}
+
+div table tbody tr .TypicalTableTextAlign {
+    text-align:left;
+    line-height: 0px;
+    vertical-align: middle;
+    border-left: transparent;
+}
+
+.checkbox {
+    width: 8px;
+    height: 8px;
+    margin: 0 22px 0 8px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+div table tbody tr td .TableSmallText {
+    font-size: 12px;
+}
+
+div table tbody tr td .TypicalType_1 {
+    width: 330px;
+    display: inline-block;
+    margin-right: 0;
+}
+
+div table tbody tr td .TypicalType_2 {
+    width: 484px;
+    display: inline-block;
+    margin: 0;
+}
+
+.TableTitle {
+    text-align: center;
+    font-size: 22px;
+    font-family: "바탕";
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 6px;
+}
+
+.TableContainer .TypicalType1 {
+    width: 291px;
+    float: left;
+}
+
+.TableContainer .TypicalType2 {
+    width: 304px;
+    float: right;
+}
+
+.TableContainer .TypicalType1 > table {
+    position: static;
+    left: 0%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.TableContainer .TypicalType2 > table {
+    position: static;
+    left: 0%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;    
+}
+
+div table tbody tr td .VowsNum {
+    width: 40%;
+}
+
+div table tbody tr td .DateNum {
+    width: 5%;
+}
+
+div table tbody tr td .NameBlank {
+    width: 20%;
+}
+
+div table tbody tr td .VowsNameBlank {
+    width: 35%;
+    font-size: 9pt;
+}
+
+div table tbody tr td .VowsDateNum {
+    width: 15%;
+}
+
+.TableContainer .SchoolTitle {
+    text-align:left;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.TitleFooter .SchoolTitle {
+    text-align:left;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+div table tbody tr td .RecommendDate {
+    width: 3%;
+}
+
+div table tbody tr td .RecommendUserInput {
+    width:18%;
+    text-align: right; 
+}
+
+div table tbody tr td .RecommendSchool {
+    width:40%;
+}
+
+div table tbody tr td .RecommendUserText {
+    margin-left: 30px;
+}
+
+.MiddleTitle {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+}
+
+.MiddleTableContainer .MiddleTableText {
+    text-align: left;
+    margin: 0 7px;
+}
+
+.TitleFooter {
+    position: relative;
+    left: 50%;
+    margin: 0 0 0 -410px;
+    padding: 0;
+    width: 820px;
+}
+
+.TitleFooter .TitleFooterText {
+    margin: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.TitleFooter .TitleFooterStudent {
+    text-align: right;
+    margin: 0;
+}
+
+.TitleFooter .TitleFooterParents {
+    text-align: right;
+    margin: 0;
+}
+
+.TitleFooter .TitleFooterStudentInput {
+    width: 14%;
+    text-align: right;
+    font-size: 14px;
+    border: transparent;
+    font-size: 16px;
+    border-bottom: 0.4px solid #2f2f2f
+}
+
+.TitleFooter .TitleFooterParentsInput {
+    width: 14%;
+    text-align: right;
+    border: transparent;
+    font-size: 16px;
+    border-bottom: 0.4px solid #2f2f2f
+}
