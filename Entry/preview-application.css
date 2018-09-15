@@ -14,6 +14,11 @@ table {
   table-layout: fixed;
 }
 
+p, pre {
+  margin: 0;
+  padding: 0;
+}
+
 td {
   height: 20px;
   padding: 0;
@@ -44,6 +49,14 @@ input[type="checkbox"] {
   text-align: center;
 }
 
+/* application-terms -> agreement(동의서) */
+#application-terms-header {
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
+  margin: 6px;
+}
+
 /* table container */
 #application-info-tables {
   margin-top: 10px;
@@ -54,6 +67,36 @@ input[type="checkbox"] {
 /* checkbox textalign */
 .application-info-textalign-left {
   text-align: left;
+}
+
+/* number blank */
+.application-info-blank {
+  display: inline-block;
+  width: 6px;
+}
+
+/* long number blank */
+.application-info-long-blank {
+  display: inline-block;
+  width: 70px;
+}
+
+/* middle number blank */
+.application-info-middle-blank {
+  display: inline-block;
+  width: 40px;
+}
+
+#application-terms-info-box {
+  height: 150px;
+  /* padding: 2px; */
+  border: 1px solid black;
+}
+
+/* agreement-text */
+.agreement-text {
+  font-size: 2.5px;
+  margin: 0 6px;
 }
 
 /* The total value of the row percentage should be 99%, beacuse 100% has some issue. */
@@ -96,14 +139,35 @@ input[type="checkbox"] {
 #application-info-tables table:nth-child(4) tr:nth-child(3) td:nth-child(1) { width: 24%; }
 #application-info-tables table:nth-child(4) tr:nth-child(3) td:nth-child(2) { width: 6%; }
 
-/* row_6, 내신성적 */
+/* row_6, 내신성적~ */
 #application-info-tables table:nth-child(5) tr:nth-child(1) td:nth-child(1) { width: 10%; }
 #application-info-tables table:nth-child(5) tr:nth-child(1) td:nth-child(2) { width: 50%; }
 #application-info-tables table:nth-child(5) tr:nth-child(1) td:nth-child(3) { width: 13%; }
 #application-info-tables table:nth-child(5) tr:nth-child(1) td:nth-child(4) { width: 13%; }
 #application-info-tables table:nth-child(5) tr:nth-child(1) td:nth-child(5) { width: 13%; }
 
-/* row_7, 사진 */
+/* row_7, 사진~ */
 #application-info-tables table:nth-child(6) tr:nth-child(1) td:nth-child(1) { width: 3cm; height: 4cm; }
 #application-info-tables table:nth-child(6) tr:nth-child(1) td:nth-child(2) { width: 58%; }
+#application-info-tables table:nth-child(6) tr:nth-child(1) td:nth-child(2) p, pre { margin: 10px; }
+#application-info-tables table:nth-child(6) tr:nth-child(1) td:nth-child(2) p:nth-child(5) { font-size: 11px; font-weight: bold; text-align: left; margin-left: 10px; }
 #application-info-tables table:nth-child(6) tr:nth-child(1) td:nth-child(3) { width: 21%; }
+#application-info-tables table:nth-child(6) tr:nth-child(1) td:nth-child(3) p, pre { margin: 10px; }
+
+/* row_8, 추천서~ */
+#application-info-tables table:nth-child(7) tr:nth-child(1) td:nth-child(1) { border: 1px solid #000 }
+#application-info-tables table:nth-child(7) tr:nth-child(1) td:nth-child(1) p, pre { margin: 12px; }
+
+/* row-9, 개인정보 활용 동의서 */
+#preview-container p:nth-child(1) { font-size: 7px; }
+#preview-container p:nth-child(2) { font-size: 7px; }
+#preview-container p:nth-child(3) { font-size: 7px; }
+#preview-container p:nth-child(4) { font-size: 7px; }
+#preview-container p:nth-child(5) { font-size: 7px; }
+#preview-container p:nth-child(6) { font-size: 7px; }
+#preview-container p:nth-child(7) { font-size: 7px; }
+#preview-container p:nth-child(8) { font-size: 7px; }
+
+#preview-container p:nth-child(11) { font-size: 10px; text-align: right; }
+#preview-container p:nth-child(12) { font-size: 10px; text-align: right; }
+#preview-container p:nth-child(13) { font-size: 14px; font-weight: bold; }
