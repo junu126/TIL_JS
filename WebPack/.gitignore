@@ -1,0 +1,5 @@
+# 노드 모듈
+/node_modules
+
+# yarn
+/yarn.lock
