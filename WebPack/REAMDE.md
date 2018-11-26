@@ -95,3 +95,32 @@ export default class Utils {
   }
 }
 ```
+
+# Loader
+webpack은 모듈로 모든것을 관리한다. 자바스크립트 파일 뿐아니라, css파일이나, jsx, html파일등.. 다양한 종류의 확장자를 관리해야 한다. 하지만 webpack은 js밖에 건들 수 없다. 그렇기 때문에 자바스크립트 파일이 아닌 파일들을 웹펙이 이해할 수 있도록 바꿔주는 역할을 하는 것이 `loader`이다.
+
+loader는 `test`와 `use`키로 구성된 객체로 설정할 수 있다.
+
+- test에는 로딩하고 싶은 파일을 적는다.
+- use에는 적용시킬 로더를 적는다.
+
+Webpack의 로더에는 여러가지가 있다.
+
+    로더의 몇가지 예제
+     - style-loader
+     - css-loader
+     - babel-loader
+     ...
+이와 같이 여러 로더가 존재한다. 예를 든 3개중 위의 2개는 html파일에 `<style>`태그를 추가해서 css를 넣게 도와주는 로더이고, 마지막 로더는 `Babel`이라고 불리며 ES6이상의 문법들을 ES5로 컴파일시켜서 여러 브라우저에서 돌아갈 수 있는 환경을 조성해준다.
+
+app.js와 Utils.js에서 일부로 ES6문법을 사용했으니, babel을 이용해서 loader를 사용해보도록 하겠다.
+
+```js
+module.exports = {
+  module : {
+    rules : [{
+      
+    }]
+  }
+}
+```
