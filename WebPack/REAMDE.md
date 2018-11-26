@@ -60,7 +60,24 @@ module.exports = {
 dist 폴더의 bundle.js 파일로 결과를 저장한다.  
 html 파일에서는 번들링된 이 파일을 로딩하게끔 한다.
 
-엔트리에 설정한 app.js는 Utils.js 모듈을 사용한다.
+이때 entry에서 building된 결과 파일의 이름을 `filename`으로 정의해서 `path`에 해당하는 곳에 생성해주는 것이다.  
+그렇기 때문에 path에는 '절대경로'를 통해 설정해주어야한다. 그렇기에 `__dirname`을 사용할 수 있다.  
+이때 `__dirname`은 directoryName의 줄임말이다.
+
+```js
+module.exports = {
+  output : {
+    filename : 'bundle.js',
+    path : path.join(__dirname, './dist'),
+  }
+}
+```
+위의 코드에서 `path.join(__dirname, './dist')`라고 사용했는데 join()메서드는 path의 원소들을 문자열로 나열시키는 메서드이다.  
+이 코드를 지나면 key값(path)에는 webpack이 존재하고 있는 현재 폴더로 지정이 되고, 그뒤 './dist'문자열이 나열된다.
+
+즉, `path : C:\Users\junukim\dist`에 지정되는 것 이다. 결과적으로 저 경로에 bundle.js파일이 생성된다.
+
+이후 엔트리에 설정한 app.js는 Utils.js 모듈을 사용한다.
 
 ### src/app.js : 
 ```js
