@@ -86,27 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/Utils.js":
-/*!**********************!*\
-  !*** ./src/Utils.js ***!
-  \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Utils; });\nclass Utils {\r\n  static (masage) {\r\n    console.log('[Log] : ' + masage);\r\n  }\r\n}\n\n//# sourceURL=webpack:///./src/Utils.js?");
-
-/***/ }),
-
 /***/ "./src/app.js":
 /*!********************!*\
   !*** ./src/app.js ***!
   \********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Utils */ \"./src/Utils.js\");\n\r\n\r\n_Utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"].log('OMG so Hard!!!');\n\n//# sourceURL=webpack:///./src/app.js?");
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nReferenceError: [BABEL] C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\src\\\\app.js: Unknown option: .module. Check out https://babeljs.io/docs/en/babel-core/#options for more information about options.\\n    at throwUnknownError (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\validation\\\\options.js:123:11)\\n    at Object.keys.forEach.key (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\validation\\\\options.js:107:5)\\n    at Array.forEach (<anonymous>)\\n    at validateNested (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\validation\\\\options.js:83:21)\\n    at validate (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\validation\\\\options.js:74:10)\\n    at instantiatePreset (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\full.js:244:36)\\n    at cachedFunction (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\caching.js:33:19)\\n    at loadPresetDescriptor (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\full.js:235:45)\\n    at config.presets.reduce (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\full.js:77:21)\\n    at Array.reduce (<anonymous>)\");\n\n//# sourceURL=webpack:///./src/app.js?");
 
 /***/ })
 
