@@ -14,5 +14,21 @@ module.exports = {
     path : path.join(__dirname, './dist'),
   },
 
+  module : {
+    rules : [
+      {
+        test : /\.js$/,
+        exclude : /node_modules/,
+        include : path.join(__dirname, './src'),
+        use : {
+          loader : 'babel-loader',
+          options : {
+            presets : ['env', { module : false }]
+          }
+        }
+      },
   
+    // 다른 loader를 설정할 때 배열의 다음 인덱스에 넣어줌.
+    ],
+  },
 }
