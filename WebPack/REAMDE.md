@@ -119,8 +119,27 @@ app.js와 Utils.js에서 일부로 ES6문법을 사용했으니, babel을 이용
 module.exports = {
   module : {
     rules : [{
-      
+      test : /\.js$/,
+      exclude : /node_modules/,
+      include : path.join(__dirname, 'src'),
+      use : {
+        loader : 'babel-loader',
+        options : {
+          presets : ['env', { module : fasle },
+          ],
+        }
+      }
     }]
   }
 }
 ```
+test에는 대부분 정규표현식이 들어가게된다. 여기서는 자바스크립트 파일을 정의해주었다. 그리고 node_module폴더는 패키지 폴더이므로 제외하기 위해 exclude에 넣어준다. (exclude에 넣은 파일/폴더 는 test에서 제외된다.)  
+그리고 include는 test 시킬 파일이 존재하는 파일의 path를 설정해준다.
+
+이후 use의 loader에 `babel-loader`를 지정해주어서, 사용할 로더가 babel-loader라는 것을 명시 시킨 후, options를 정의해준다.
+
+options의 preset은 어떻게 변환시킬시 명시한다. 이때 env는 Es2015, Es2016... 등의 변환을 모아둔 것 이다. `module : false`는 바벨 빌드의 결과로부터 사용하지 않는 코드를 삭제해주어서 파일의 크기를 줄여준다.
+
+여기서 options는 바벨의 `.babelrc`파일로 따로 추출할 수 있다.
+
+이후 `\node_modules\.bin\webpack`명령어를 통해 빌드를 하면 Es6문법이 Es5로 바뀐것을 확인할 수 있다.
