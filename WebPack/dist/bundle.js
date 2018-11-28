@@ -86,14 +86,27 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/Utils.js":
+/*!**********************!*\
+  !*** ./src/Utils.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nvar Utils =\n/*#__PURE__*/\nfunction () {\n  function Utils() {\n    _classCallCheck(this, Utils);\n  }\n\n  _createClass(Utils, [{\n    key: \"static\",\n    value: function _static(masage) {\n      console.log('[Log] : ' + masage);\n    }\n  }]);\n\n  return Utils;\n}();\n\nexports.default = Utils;\n\n//# sourceURL=webpack:///./src/Utils.js?");
+
+/***/ }),
+
 /***/ "./src/app.js":
 /*!********************!*\
   !*** ./src/app.js ***!
   \********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nReferenceError: [BABEL] C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\src\\\\app.js: Unknown option: .module. Check out https://babeljs.io/docs/en/babel-core/#options for more information about options.\\n    at throwUnknownError (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\validation\\\\options.js:123:11)\\n    at Object.keys.forEach.key (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\validation\\\\options.js:107:5)\\n    at Array.forEach (<anonymous>)\\n    at validateNested (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\validation\\\\options.js:83:21)\\n    at validate (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\validation\\\\options.js:74:10)\\n    at instantiatePreset (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\full.js:244:36)\\n    at cachedFunction (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\caching.js:33:19)\\n    at loadPresetDescriptor (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\full.js:235:45)\\n    at config.presets.reduce (C:\\\\Users\\\\10406KJW\\\\Documents\\\\TIL_JS\\\\WebPack\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\full.js:77:21)\\n    at Array.reduce (<anonymous>)\");\n\n//# sourceURL=webpack:///./src/app.js?");
+"use strict";
+eval("\n\nvar _Utils = _interopRequireDefault(__webpack_require__(/*! ./Utils */ \"./src/Utils.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_Utils.default.log('OMG so Hard!!!');\n\n//# sourceURL=webpack:///./src/app.js?");
 
 /***/ })
 
