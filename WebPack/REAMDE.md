@@ -4,7 +4,7 @@
 
 # 설치 및 개발환경 구성
 ```js
-// yatn
+// yarn
 yarn add -g webpack webpack-cil && yarn add -D webpack webpack-cli
 
 // npm
@@ -14,12 +14,14 @@ npm i - g webpack webpack-cil && npm i -D webpack webpack-cli
 
 ```js
 // yarn
-yarn add -g -D babel-loader @babel/core @babel/preset-env @babel/react @babel/preset-stage-0
+yarn add -g -D babel babel-loader@7.1.5 babel-core@7.0.0.0 babel-preset-env @babel/preset-env @babel-core
 
 // npm
-npm i -g -D babel-loader @babel/core @babel/preset-env @babel/react @babel/preset-stage-0
+npm i -g -D babel babel-loader@7.1.5 babel-core@7.0.0.0 babel-preset-env @babel/preset-env @babel-core
 ```
 위의 명령얼르 터미널에 입력하게 되면 ES6이상의 문법들을 사용하면 호환하지 않는 브라우저가 있기 마련이다. 이때 이런 문법들을 ES5로 변환시켜 컴파일 해주는 `babel`을 설치할 수 있다. 나는 react를 사용하기 때문에 @babel/react를 해주는 것 이다. 이것을 해주면 JSX같은 문법을 컴파일 할 수 있게된다.
+
+💥바벨 버전을 7.X대로 설정했다. 버전이 업데이트된다면 빌드법이 바뀔 것 이다.💥
 
 # webpack.config.js
 파일명이 webpack.config.js여야 웹팩이 바로 인식한다. 만약 웹팩이 인식하는 파일명을 다르게 하고 싶다면, 터미널에서 webpack--config webpack.config.prod.js와 같이 `--config`플래그를 사용해 경로를 지정해 주면 된다. 위와 같이 터미널에 입력하고 나면 webpack.config.prod.js파일을 웹팩이 인식하게 된다.
