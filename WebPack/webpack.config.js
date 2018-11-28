@@ -20,12 +20,12 @@ module.exports = {
         test : /\.js$/,
         exclude : /node_modules/,
         include : path.join(__dirname, './src'),
-        use : {
+        use : [{
           loader : 'babel-loader',
           options : {
-            presets : ['env', { module : false }]
-          }
-        }
+            presets : [ '@babel/preset-env' ],
+          },
+        }],
       },
   
     // 다른 loader를 설정할 때 배열의 다음 인덱스에 넣어줌.
