@@ -19,9 +19,20 @@ yarn add -g -D babel babel-loader@7.1.5 babel-core@7.0.0.0 babel-preset-env @bab
 // npm
 npm i -g -D babel babel-loader@7.1.5 babel-core@7.0.0.0 babel-preset-env @babel/preset-env @babel-core
 ```
-위의 명령얼르 터미널에 입력하게 되면 ES6이상의 문법들을 사용하면 호환하지 않는 브라우저가 있기 마련이다. 이때 이런 문법들을 ES5로 변환시켜 컴파일 해주는 `babel`을 설치할 수 있다. 나는 react를 사용하기 때문에 @babel/react를 해주는 것 이다. 이것을 해주면 JSX같은 문법을 컴파일 할 수 있게된다.
+위의 명령어를 터미널에 입력하게 되면 ES6이상의 문법들을 사용하면 호환하지 않는 브라우저가 있기 마련이다. 이때 이런 문법들을 ES5로 변환시켜 컴파일 해주는 `babel`을 설치할 수 있다. 나는 react를 사용하기 때문에 @babel/react를 해주는 것 이다. 이것을 해주면 JSX같은 문법을 컴파일 할 수 있게된다.
 
 💥바벨 버전을 7.X대로 설정했다. 버전이 업데이트된다면 빌드법이 바뀔 것 이다.💥
+
+다음으로 webpack을 로컬 서버에서 테스트 할 수 있는 서버를 열기 위한 명령어를 입력해줘야한다. babel을 통한 빌딩을 확인하기 위함이다.
+```js
+// yarn
+yarn add -g webpack webpack-dev-server
+yarn add -D webpack webpack-dev-server
+
+// npm
+npm i -g webpack webpack-dev-server
+npm i -D webpack webpack-dev-server
+```
 
 # webpack.config.js
 파일명이 webpack.config.js여야 웹팩이 바로 인식한다. 만약 웹팩이 인식하는 파일명을 다르게 하고 싶다면, 터미널에서 webpack--config webpack.config.prod.js와 같이 `--config`플래그를 사용해 경로를 지정해 주면 된다. 위와 같이 터미널에 입력하고 나면 webpack.config.prod.js파일을 웹팩이 인식하게 된다.
@@ -144,4 +155,5 @@ options의 preset은 어떻게 변환시킬시 명시한다. 이때 env는 Es201
 
 여기서 options는 바벨의 `.babelrc`파일로 따로 추출할 수 있다.
 
-이후 `\node_modules\.bin\webpack`명령어를 통해 빌드를 하면 Es6문법이 Es5로 바뀐것을 확인할 수 있다.
+이후 `webpack-dev-server`명령어를 통해 빌드를 하면 Es6문법이 Es5로 바뀐것을 확인할 수 있다.
+
