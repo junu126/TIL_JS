@@ -1,0 +1,8 @@
+//- pug에서 변수를 사용하는 방법
+//- 1. Element뒤에 '='을 붙이고 한칸 띈후 사용. (텍스트로 들어감)
+//- 2. 텍스트 중간에 변수를 사용하고 싶다면 '#{}'을 한 후 사용. (텍스트로 들어감)
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
