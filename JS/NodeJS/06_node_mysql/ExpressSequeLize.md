@@ -169,3 +169,58 @@ User.findAll({
 ```
 
 위의 코드는 `age`에 맞춰서 내림차순으로 정렬한 `id`, `name`컬럼을 조회하는 코드이다.
+
+7. 불러올 로우 개수 설정 ( 가장 최상위 데이터)
+
+**SELECT id, name FROM nodejs.users ORDER BY age DESC LIMIT 1;**
+
+```js
+const { User, Sequelize: { Op } } = require('../models');
+
+User.findAll({
+  attributes: ['id', 'name'],
+  order: [['age', 'DESC']],
+  limit: 1,
+})
+```
+
+8. 불러올 로우 개수 설정 ( 원하는 데이터 [(ex) 두번째 데이터] )
+
+**SELECT id, name FROM nodejs.users ORDER BY age DESC LIMIT 1 OFFSET 1;**
+
+```js
+const { User, Sequelize: { Op } } = require('../models');
+
+User.findAll({
+  attributes: ['id', 'name'],
+  order: [['age', 'DESC']],
+  limit: 1,   // 하나의 데이터만 불러옴.
+  offset: 1,  // offset이 1일때 둘째 데이터를 불러온다.
+})
+```
+
+9. 로우를 수정하는 쿼리
+
+**UPDATE nodejs.users SET comment = '바꿀 내용' WHERE id = 2;**
+
+```js
+const { User } = require('../models');
+
+User.update({
+  comment: '바꿀 내용',
+}, {
+  where: { id: 2 },
+});
+```
+
+10. 로우를 삭제하는 쿼리
+
+**DELETE FROM nodejs.users WHERE id = 2;**
+
+```js
+const { User } = require('../models');
+
+User.destory({
+  where: { id: 2 },
+});
+```
