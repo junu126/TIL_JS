@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    commnet: {
+    comment: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
