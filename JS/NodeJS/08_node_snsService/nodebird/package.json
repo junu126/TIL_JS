@@ -17,6 +17,9 @@
     "express-session": "^1.15.6",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.4",
+    "passport": "^0.4.0",
+    "passport-kakao": "0.0.5",
+    "passport-local": "^1.0.0",
     "pug": "^2.0.3",
     "sequelize": "^4.42.0"
   },
