@@ -4,11 +4,16 @@ const cookieParser = require('cookie-parser');
 const morgan = require("morgan");
 const path = require("path");
 const flash = require("connect-flash");
+const passport = require('passport');
 require("dotenv").config();
 
 const pageRouter = require("./routes/page");
+const { sequelize } = require('./models');
+const passportConfig = require('./passport');
 
 const app = express();
+sequelize.sync();
+passportConfig(passport);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -32,6 +37,8 @@ app.use(
   })
 );
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Router
 app.use("/", pageRouter);
