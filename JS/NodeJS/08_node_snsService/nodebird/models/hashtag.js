@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => (
   sequelize.define('hastag', {
     title: {
       type: DataTypes.STRING(15),
@@ -8,5 +8,5 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     timestamps: true,
     paranoid: true,
-  });
-}
+  })
+);
