@@ -8,6 +8,9 @@ const passport = require('passport');
 require("dotenv").config();
 
 const pageRouter = require("./routes/page");
+const AuthRouter = require("./routes/auth");
+const PostRouter = require('./routes/post');
+const UserRouter = require('./routes/user');
 const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 
@@ -22,6 +25,7 @@ app.set("port", process.env.PORT || 8001);
 // MiddleWare
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/img', express.static(path.join(__dirname, "uploads")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
@@ -42,6 +46,9 @@ app.use(passport.session());
 
 // Router
 app.use("/", pageRouter);
+app.use('/auth', AuthRouter);
+app.use('/post', PostRouter);
+app.use('/user', UserRouter);
 
 // Error MiddleWare
 app.use((req, res, next) => {
