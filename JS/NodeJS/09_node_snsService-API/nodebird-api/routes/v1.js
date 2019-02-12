@@ -58,4 +58,43 @@ router.get("/test", verifyToken, (req, res) => {
   res.json(req.decoded);
 });
 
+router.get('/posts/my', verifyToken, async (req, res) => {
+  try {
+    const posts = await Post.findAll({ where: { userId: req.decoded.id } });
+    return res.json({
+      code: 200,
+      posts,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      code: 500,
+      message: '서버 에러',
+    });
+  }
+})
+
+router.get('/posts/hashtag/:title', verifyToken, async (req, res) => {
+  try {
+    const hashtag = await Hashtag.find({ where: { title: req.params.title } });
+    if (!hashtag) {
+      return res.status(404).json({
+        code: 404,
+        message: '검색 결과가 없습니다.',
+      });
+    }
+    const posts = await hashtag.getPosts();
+    return res.json({
+      code: 200,
+      payload: posts,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      code: 500,
+      message: '서버 에러',
+    });
+  }
+});
+
 module.exports = router;
