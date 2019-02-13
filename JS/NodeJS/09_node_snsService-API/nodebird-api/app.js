@@ -1,12 +1,32 @@
 /**
- * @api {get} /user/:id Request User information
- * @apiName GetUser
- * @apiGroup User
+ * @api {post} /token Request JWT Token
+ * @apiName JWT-Token
+ * @apiGroup Token
  *
- * @apiParam {Number} id Users unique ID.
- *
- * @apiSuccess {String} firstname Firstname of the User.
- * @apiSuccess {String} lastname  Lastname of the User.
+ * @apiSuccess {Number} code  return status code.
+ * @apiSuccess {String} message  return message.
+ * @apiSuccess {String} token return JWT token.
+ * @apiSuccessExample {json}  Success-Response
+ *     {
+ *       "code": 200,
+ *       "message": "토큰이 발급되었습니다.",
+ *       "token": token,
+ *     }
+ * @apiError (Error401) {Number} code  return status code.
+ * @apiError (Error401) {String} message  return message.
+ * @apiErrorExample {json}  Error-Response
+  *     {
+ *       "code": 401,
+ *       "message": "등록되지 않은 도메인입니다. 먼저 도메인을 등록하세요.",
+ *     }
+ * @apiError (Error5xx) {Number} code  return status code.
+ * @apiError (Error5xx) {String} message  return message.
+ * @apiErrorExample {json}  Error-Response
+  *     {
+ *       "code": 5xx,
+ *       "message": "서버 에러",
+ *     }
+ * 
  */
 
 const express = require('express');

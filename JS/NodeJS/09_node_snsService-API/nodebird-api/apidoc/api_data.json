@@ -1,45 +1,94 @@
 [
   {
-    "type": "get",
-    "url": "/user/:id",
-    "title": "Request User information",
-    "name": "GetUser",
-    "group": "User",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Users unique ID.</p>"
-          }
-        ]
-      }
-    },
+    "type": "post",
+    "url": "/token",
+    "title": "Request JWT Token",
+    "name": "JWT_Token",
+    "group": "Token",
     "success": {
       "fields": {
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Number",
             "optional": false,
-            "field": "firstname",
-            "description": "<p>Firstname of the User.</p>"
+            "field": "code",
+            "description": "<p>return status code.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "lastname",
-            "description": "<p>Lastname of the User.</p>"
+            "field": "message",
+            "description": "<p>return message.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>return JWT token.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"code\": 200,\n  \"message\": \"토큰이 발급되었습니다.\",\n  \"token\": token,\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error401": [
+          {
+            "group": "Error401",
+            "type": "Number",
+            "optional": false,
+            "field": "code",
+            "description": "<p>return status code.</p>"
+          },
+          {
+            "group": "Error401",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>return message.</p>"
+          }
+        ],
+        "Error5xx": [
+          {
+            "group": "Error5xx",
+            "type": "Number",
+            "optional": false,
+            "field": "code",
+            "description": "<p>return status code.</p>"
+          },
+          {
+            "group": "Error5xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>return message.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response",
+          "content": "{\n  \"code\": 401,\n  \"message\": \"등록되지 않은 도메인입니다. 먼저 도메인을 등록하세요.\",\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response",
+          "content": "{\n  \"code\": 5xx,\n  \"message\": \"서버 에러\",\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
-    "filename": "routes/v2.js",
-    "groupTitle": "User"
+    "filename": "./app.js",
+    "groupTitle": "Token"
   }
 ]
