@@ -36,13 +36,13 @@ exports.verifyToken = (req, res, next) => {
 };
 
 exports.apiLimiter = new RateLimit({
-  windowMs: 1000 * 60,  // 기준시간
+  windowMs: 1000 * 3,  // 기준시간
   max: 1,               // 허용 횟수
   delayMs: 0,           // 호출 간격
   handler(req, res) {   // 제한 초과 시 콜백 함수
     res.status(this.statusCode).json({
       code: this.statusCode,  // 기본값 429
-      message: '1분에 한 번만 요청할 수 있습니다.',
+      message: '3초에 한 번만 요청할 수 있습니다.',
     });
   },
 });
