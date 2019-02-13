@@ -6,7 +6,7 @@ const { Domain, User, Post, Hashtag } = require("../models");
 
 const router = express.Router();
 
-router.use(deprecated);
+// router.use(deprecated);
 
 router.post("/token", async (req, res) => {
   const { clientSecret } = req.body;
