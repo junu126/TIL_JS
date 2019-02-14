@@ -1,10 +1,13 @@
 const express = require("express");
-const sesstion = require("express-session");
+const session = require("express-session");
 const cookieParser = require('cookie-parser');
 const morgan = require("morgan");
 const path = require("path");
 const flash = require("connect-flash");
 const passport = require('passport');
+const helmet = require('helmet');
+const hpp = require('hpp');
+const RedisStore = require('connect-redis')(session);
 require("dotenv").config();
 
 const pageRouter = require("./routes/page");
@@ -13,6 +16,7 @@ const PostRouter = require('./routes/post');
 const UserRouter = require('./routes/user');
 const { sequelize } = require('./models');
 const passportConfig = require('./passport');
+const logger = require('./logger');
 
 const app = express();
 sequelize.sync();
@@ -23,23 +27,40 @@ app.set("view engine", "pug");
 app.set("port", process.env.PORT || 8001);
 
 // MiddleWare
-app.use(morgan("dev"));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(morgan('combined'));
+  app.use(helmet());
+  app.use(hpp());
+} else {
+  app.use(morgan('dev'));
+}
 app.use(express.static(path.join(__dirname, "public")));
 app.use('/img', express.static(path.join(__dirname, "uploads")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use(
-  sesstion({
-    resave: false,
-    saveUninitialized: false,
-    secret: process.env.COOKIE_SECRET,
-    cookie: {
-      httpOnly: true,
-      secure: false
-    }
-  })
-);
+const sessionOption = {
+  resave: false,
+  saveUninitialized: false,
+  secret: process.env.COOKIE_SECRET,
+  cookie: {
+    httpOnly: true,
+    secure: false
+  },
+  store: new RedisStore({
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+    pass: process.env.REDIS_PASSWORD,
+    logErrors: true,
+  }),
+};
+
+if (process.env.NODE_ENV === 'production') {
+  sessionOption.proxy = true;
+}
+
+app.use(session(sessionOption));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -54,6 +75,8 @@ app.use('/user', UserRouter);
 app.use((req, res, next) => {
   const err = new Error("Not Found");
   err.status = 404;
+  logger.info('Hello');
+  logger.error(err.message);
   next(err);
 });
 
