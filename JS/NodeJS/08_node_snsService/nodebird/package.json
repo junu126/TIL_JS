@@ -4,26 +4,32 @@
   "description": "익스프레스로 만드는 SNS 서비스",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production PORT=80 pm2 start app.js -i 0",
+    "dev": "nodemon app"
   },
   "author": "JunuKimDev",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.4",
     "connect-flash": "^0.1.1",
+    "connect-redis": "^3.4.0",
     "cookie-parser": "^1.4.3",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "helmet": "^3.15.1",
+    "hpp": "^0.2.2",
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
     "mysql2": "^1.6.4",
     "passport": "^0.4.0",
     "passport-kakao": "0.0.5",
     "passport-local": "^1.0.0",
+    "pm2": "^3.2.9",
     "pug": "^2.0.3",
-    "sequelize": "^4.42.0"
+    "sequelize": "^4.42.0",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
