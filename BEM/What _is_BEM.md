@@ -173,4 +173,12 @@ BEM에 대한 이해도가 부족하다고 생각되어 다시 한번 공부를 
   </blockquote>
 ```
 
-이 코드 뿐이다. 이때 위의 코드가 옳고 아래의 코드가 틀렸다. class이름에는 하나의 요소만 들어가야 한다 예를 들어서 `class="a_-b__c"`는 틀리고 `class="a__b--c"`는 옳다.
+이 코드 뿐이다. 이때 위의 코드가 옳고 아래의 코드가 틀렸다. class이름에는 하나의 요소만 들어가야 한다 예를 들어서 `class="a_-b__c"`는 틀리고 `class="a__b--c"`는 옳다.  
+
+또한 BEM에서는 class를 모두 소문자로 작성한다. 그리고 다중으로 단어를 사용할때는 `하이픈(-)`을 사용한다. 예를 들어서
+```javascript
+  <div class="some-thesis some-thesis--fast-read">
+    <div class="some-thesis__some-element"></div>
+  </div>
+```
+이런식으로 사용한다.
